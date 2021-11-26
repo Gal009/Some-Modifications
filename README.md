@@ -9,7 +9,7 @@
 
 Everything I mentioned above is configurable (minus the panic effect, the effect of the SCP-207 that the SCP-173 gets when it puts a tantrum and the negative effects of when someone walks in its tantrum. The only thing you can configure from these Effects is time but if you want I can try to make you change the effects too)
 
-I know that the code is not very good and that i have to remove some unnecessary checks, but im tired to remove the unnecessary checks.
+I know that the code is not very good (But i tried to do something good)
 you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
 
 (Shout out to Jeppe Beier for the exiled plugin tutorial)
