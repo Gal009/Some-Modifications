@@ -11,3 +11,5 @@ Everything I mentioned above is configurable (minus the panic effect, the effect
 
 I know that the code is not very good and that i have to remove some unnecessary checks, but im tired to remove the unnecessary checks.
 you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
+
+(Shout out to Jeppe Beier for the exiled plugin tutorial)
