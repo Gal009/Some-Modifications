@@ -61,11 +61,5 @@ namespace ChorãoUtilities
 
         [Description("The message that appears when someone is dying to decontamination")]
         public string NoobDiedtoDecontamination { get; set; } = "You can't breath";
-
-        [Description("The message that appears when SCP-939 bites someone.")]
-        public string BleedingMessage { get; set; } = "You are bleeding";
-
-        [Description("The amount of time someone stays with the bleeding effect after being hit by a bite of an SCP-939")]
-        public float BleedingTime { get; set; } = 5;
     }
 }

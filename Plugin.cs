@@ -53,7 +53,6 @@ namespace ChorãoUtilities
             ExEvents.Scp096.CalmingDown += player.OnCalmingDown;
             ExEvents.Scp173.PlacingTantrum += player.OnPlacingTantrum;
             Player.Hurting += player.OnGettingHurt;
-            Player.Hurting += player.OnHurtingPLayer;
         }
 
         public void UnRegisterEvents()
@@ -66,7 +65,6 @@ namespace ChorãoUtilities
             ExEvents.Scp096.CalmingDown -= player.OnCalmingDown;
             ExEvents.Scp173.PlacingTantrum -= player.OnPlacingTantrum;
             Player.Hurting -= player.OnGettingHurt;
-            Player.Hurting -= player.OnHurtingPLayer;
 
             player = null;
             server = null;

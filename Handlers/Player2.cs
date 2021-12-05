@@ -80,15 +80,6 @@ namespace ChorãoUtilities.Handlers
                 ev.Target.ShowHint(Plugin.Singleton.Config.NoobDiedtoDecontamination, 5);
             }
         }
-
-        public void OnHurtingPLayer(HurtingEventArgs ev)
-        {
-            if (ev.Attacker.Team == Team.SCP)
-            {
-                    ev.Target.ShowHint(Plugin.Singleton.Config.BleedingMessage);
-                    ev.Target.EnableEffect(EffectType.Bleeding, Plugin.Singleton.Config.BleedingTime);
-            }
-        }
     }
 }
     
