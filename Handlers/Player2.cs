@@ -13,6 +13,25 @@ using Exiled.API.Enums;
 using MEC;
 using Exiled.API;
 using Exiled.Events;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using Exiled.API.Features.Items;
+using Hints;
+using InventorySystem;
+using InventorySystem.Disarming;
+using InventorySystem.Items;
+using InventorySystem.Items.Firearms;
+using InventorySystem.Items.Firearms.Attachments;
+using InventorySystem.Items.Firearms.BasicMessages;
+using Mirror;
+using NorthwoodLib;
+using NorthwoodLib.Pools;
+using PlayableScps;
+using PlayableScps.ScriptableObjects;
+using PlayerStatsSystem;
+using RemoteAdmin;
+using UnityEngine;
+using Utils.Networking;
 
 
 namespace ChorãoUtilities.Handlers
@@ -78,6 +97,17 @@ namespace ChorãoUtilities.Handlers
             if (ev.Handler.Type == DamageType.Decontamination)
             {
                 ev.Target.ShowHint(Plugin.Singleton.Config.NoobDiedtoDecontamination, 5);
+            }
+        }
+
+        public void OnHurtingAPlayer(HurtingEventArgs ev)
+        {
+            foreach(Player player in Player.List)
+                if (ev.Attacker != null && player.ReferenceHub != null)
+                    if (ev.Attacker.Role == RoleType.Scp93989)
+            {
+                ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogOrzombieMessage);
+                ev.Target.EnableEffect(EffectType.Bleeding, 5);
             }
         }
     }
