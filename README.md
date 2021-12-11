@@ -1,6 +1,6 @@
 # Chorao-Utilities
 - Gives negative effects when someone walks in the SCP-173 tantrum
-- Lets you edit SCP-096's AHP and maximum life when it's in rage
+- Lets you edit SCP-096's AHP when it's in rage
 - Makes a message appear for SCP-096 when he goes into rage
 - Makes a message appear for the SCP-096 when he's calming down
 - A message also appears for those who looked at the SCP-096 and gives them the effect of panic
