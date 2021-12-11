@@ -106,7 +106,7 @@ namespace ChorãoUtilities.Handlers
                 if (ev.Attacker != null && player.ReferenceHub != null)
                     if (ev.Attacker.Role == RoleType.Scp93989)
             {
-                ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogOrzombieMessage);
+                ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogMessage);
                 ev.Target.EnableEffect(EffectType.Bleeding, 5);
             }
         }

@@ -63,6 +63,6 @@ namespace ChorãoUtilities
         public string NoobDiedtoDecontamination { get; set; } = "You can't breath";
 
         [Description("The message that appears when a zombie or a dog hits the player and the player starts bleeding")]
-        public string BleedingAppearDogOrzombieMessage { get; set; } = "As a result of your injuries you started to bleed.";
+        public string BleedingAppearDogMessage { get; set; } = "As a result of your injuries you started to bleed.";
     }
 }
