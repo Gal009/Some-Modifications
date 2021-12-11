@@ -1,12 +1,5 @@
-﻿using Exiled.API.Enums;
-using Exiled.API.Interfaces;
-using System.Collections.Generic;
+﻿using Exiled.API.Interfaces;
 using System.ComponentModel;
-using Exiled.API.Features;
-using MEC;
-using Exiled.Events.EventArgs;
-using UnityEngine;
-using PlayableScps;
 
 namespace ChorãoUtilities
 {
@@ -44,17 +37,8 @@ namespace ChorãoUtilities
         [Description("Max AHP of 096 when he is calming down")]
         public int Max096AHPAfterCalmingDown { get; set; } = 1500;
 
-        [Description("Max 096 health in rage")]
-        public int MaxHealth096InRage { get; set; } = 2500;
-
-        [Description("Max 096 max health when he is calming down")]
-        public int MaxHealth096CalmingDown { get; set; } = 2100;
-
         [Description("How much time he gains of rage when someone looks at him")]
         public float TimeThat096GainsOfRageWhenSomeoneLooks { get; set; } = 2;
-
-        [Description("How much colas effects are given to SCP-173 when he places his tantrum")]
-        public byte CokeIntensityWhenPeanutPlacesTantrum { get; set; } = 2;
 
         [Description("The message that appears when someone enters on the femur breaker")]
         public string EnteringOnFemurBreaker { get; set; } = "You feel your <color=red>FEMUR</color> breaking";
