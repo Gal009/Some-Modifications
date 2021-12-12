@@ -5,7 +5,7 @@ namespace ChorãoUtilities
 {
     public sealed class Config : IConfig
     {
-        [Description("Se o plugin está habilitado")]
+        [Description("If the plugin is enabled")]
         public bool IsEnabled { get; set; } = true;
 
         [Description("The message that appears when 096 is enraged")]
