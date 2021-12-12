@@ -30,8 +30,7 @@ namespace ChorãoUtilities
 
         public void RegisterEvents()
         {
-            player = new Handlers.Player2();
-
+            player = new Handlers.Player2(this);
 
             ExEvents.Scp096.AddingTarget += player.OnEnraging096;
             Player.WalkingOnTantrum += player.OnWalkingOnTantrum;
@@ -46,7 +45,6 @@ namespace ChorãoUtilities
 
         public void UnRegisterEvents()
         {
-
             ExEvents.Scp096.AddingTarget -= player.OnEnraging096;
             Player.WalkingOnTantrum -= player.OnWalkingOnTantrum;
             ExEvents.Scp096.Enraging -= player.OnEnraging;
