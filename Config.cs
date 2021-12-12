@@ -48,5 +48,9 @@ namespace ChorãoUtilities
 
         [Description("The message that appears when a zombie or a dog hits the player and the player starts bleeding")]
         public string BleedingAppearDogMessage { get; set; } = "As a result of your injuries you started to bleed.";
+
+        [Description("The amount of time that someone stays bleeding when the SCP-93989 bites him (Minimum time for the bleeding to work: 8)")]
+
+        public float BleedingDogBiteTime { get; set; } = 9;
     }
 }

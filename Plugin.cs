@@ -1,8 +1,7 @@
-﻿using Exiled.API.Features;
-using Exiled.API.Enums;
+﻿using System;
+using Exiled.API.Features;
 using Player = Exiled.Events.Handlers.Player;
 using ExEvents = Exiled.Events.Handlers;
-using System;
 
 namespace ChorãoUtilities
 {
@@ -12,7 +11,6 @@ namespace ChorãoUtilities
 
         public Handlers.Player2 player;
         public static Plugin Singleton;
-
 
         public override void OnEnabled()
         {
