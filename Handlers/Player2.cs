@@ -65,7 +65,7 @@ namespace ChorãoUtilities.Handlers
                     if (ev.Attacker.Role == RoleType.Scp93989)
             {
                 ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogMessage);
-                ev.Target.EnableEffect(EffectType.Bleeding, 5);
+                ev.Target.EnableEffect(EffectType.Bleeding, Plugin.Singleton.Config.BleedingDogBiteTime);
             }
         }
     }
