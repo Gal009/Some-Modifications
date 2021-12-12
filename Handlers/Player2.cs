@@ -60,13 +60,21 @@ namespace ChorãoUtilities.Handlers
 
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
-            foreach(Player player in Player.List)
+            foreach (Player player in Player.List)
                 if (ev.Attacker != null && player.ReferenceHub != null)
                     if (ev.Attacker.Role == RoleType.Scp93989)
-            {
-                ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogMessage);
+                    {
+                ev.Target.ShowHint(Plugin.Singleton.Config.BleedingAppearDogMessage, 5);
                 ev.Target.EnableEffect(EffectType.Bleeding, Plugin.Singleton.Config.BleedingDogBiteTime);
             }
+            else
+                    {
+                        if (ev.Attacker.Role == RoleType.Scp93989)
+                        {
+                            ev.Target.ShowHint(Plugin.Singleton.Config.PoisonedDogMessage);
+                                ev.Target.EnableEffect(EffectType.Poisoned, Plugin.Singleton.Config.PoisonedDogBiteTime);
+                        }
+                    }
         }
     }
 }

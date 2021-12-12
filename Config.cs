@@ -46,11 +46,20 @@ namespace ChorãoUtilities
         [Description("The message that appears when someone is dying to decontamination")]
         public string NoobDiedtoDecontamination { get; set; } = "You can't breath";
 
-        [Description("The message that appears when a zombie or a dog hits the player and the player starts bleeding")]
+        [Description("The message that appears when a SCP-93953 hits the player and the player starts bleeding")]
         public string BleedingAppearDogMessage { get; set; } = "As a result of your injuries you started to bleed.";
 
-        [Description("The amount of time that someone stays bleeding when the SCP-93989 bites him (Minimum time for the bleeding to work: 8)")]
+        [Description("The amount of time that someone stays bleeding when the SCP-93953 bites him (Minimum time for the bleeding to work: 8)")]
 
         public float BleedingDogBiteTime { get; set; } = 9;
+
+        [Description("The amount of time that someone stays poisoned when the SCP-93989 bites him")]
+
+        public float PoisonedDogBiteTime { get; set; } = 5;
+
+        [Description("The message that appears to someone when a SCP-93989 bites him")]
+
+        public string PoisonedDogMessage { get; set; } = "You are poisoned";
+
     }
 }
