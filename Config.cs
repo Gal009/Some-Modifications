@@ -5,6 +5,9 @@ namespace ChorãoUtilities
 {
     public sealed class Config : IConfig
     {
+
+        // I think i don't have to explain things here.
+
         [Description("If the plugin is enabled")]
         public bool IsEnabled { get; set; } = true;
 
@@ -35,7 +38,7 @@ namespace ChorãoUtilities
         public int Max096AHPInRage { get; set; } = 2000;
 
         [Description("Max AHP of 096 when he is calming down")]
-        public int Max096AHPAfterCalmingDown { get; set; } = 1500;
+        public int Max096AHPCalmingDown { get; set; } = 1500;
 
         [Description("How much time he gains of rage when someone looks at him")]
         public float TimeThat096GainsOfRageWhenSomeoneLooks { get; set; } = 2;
@@ -53,9 +56,9 @@ namespace ChorãoUtilities
 
         public float BleedingDogBiteTime { get; set; } = 9;
 
-        [Description("The amount of time that someone stays poisoned when the SCP-93989 bites him")]
+        [Description("The amount of time that someone stays poisoned when the SCP-93989 bites him (Minimum time for the poison to work: 8)")]
 
-        public float PoisonedDogBiteTime { get; set; } = 5;
+        public float PoisonedDogBiteTime { get; set; } = 8;
 
         [Description("The message that appears to someone when a SCP-93989 bites him")]
 
