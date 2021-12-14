@@ -53,19 +53,15 @@ namespace ChorãoUtilities
         public string BleedingAppearDogMessage { get; set; } = "As a result of your injuries you started to bleed.";
 
         [Description("The amount of time that someone stays bleeding when the SCP-93953 bites him (Minimum time for the bleeding to work: 8)")]
-
         public float BleedingDogBiteTime { get; set; } = 9;
 
         [Description("The amount of time that someone stays poisoned when the SCP-93989 bites him (Minimum time for the poison to work: 8)")]
-
         public float PoisonedDogBiteTime { get; set; } = 8;
 
         [Description("The message that appears to someone when a SCP-93989 bites him")]
-
         public string PoisonedDogMessage { get; set; } = "You are poisoned";
 
         [Description("The recharge rate of 096's shield when he enters in rage (Base-Game default: 40) Ps: I recommend the default config that i put because increasing it would be too op.")]
-
         public float RechargeRateShield { get; set; } = 45;
     }
 }

@@ -12,21 +12,18 @@ namespace ChorãoUtilities.Handlers
         private readonly Plugin plugin;
         public Player2( Plugin plugin ) => this.plugin = plugin;
 
-        // I don't know if the CurMaxShield is the 096's maxshield, i think Cur stands for Current, so maybe it will work but i haven't tested it yet.
-
+        // The shield recharge rate thingy may be wrong, but in the dootpeek it says that the base-game thingy is 40.
         public void OnEnraging(EnragingEventArgs ev)
         {
             ev.Player.Broadcast(6, plugin.Config.AngryMessage);
             ev.Scp096.CurMaxShield = plugin.Config.Max096AHPInRage;
+            ev.Scp096.ShieldRechargeRate = plugin.Config.RechargeRateShield;
         }
-
-        // The shield recharge rate thingy may be wrong, but in the dootpeek it says that the base-game thingy is 40.
 
         public void OnCalmingDown(CalmingDownEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.CalmingDownMessage, 5);
             ev.Scp096.CurMaxShield = plugin.Config.Max096AHPCalmingDown;
-            ev.Scp096.ShieldRechargeRate = plugin.Config.RechargeRateShield;
         }
 
         // I don't know if this code works because i haven't tested it yet, if it doesn't works dm me on discord that im going to try to fix it
