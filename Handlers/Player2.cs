@@ -60,7 +60,7 @@ namespace ChorãoUtilities.Handlers
             ev.Player.EnableEffect(EffectType.Scp207, plugin.Config.PeanutPlacingTantrumCokeTime);
         }
 
-        //Here i removed the if (ev.Player.IsHuman) check because Sc
+        //Here i removed the if (ev.Player.IsHuman) check because it was a unescessary check
 
         public void OnEnteringFemurBreaker(EnteringFemurBreakerEventArgs ev)
         {
