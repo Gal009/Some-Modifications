@@ -79,8 +79,11 @@ namespace ChorãoUtilities.Handlers
 
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
-            foreach (Player player in Player.List)
-                if (ev.Attacker != null && player.ReferenceHub != null)
+
+            //I don't know if the null checker works, i don't have someone to test if it works. I just can say that if the attacker is null a error doesn't appear on the console.
+
+            if (ev.Attacker == null || ev.Target == null || ev.Attacker == ev.Target)
+                return;
                     if (ev.Attacker.Role == RoleType.Scp93953)
             {
                         ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
