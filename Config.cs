@@ -64,5 +64,8 @@ namespace ChorãoUtilities
 
         public string PoisonedDogMessage { get; set; } = "You are poisoned";
 
+        [Description("The recharge rate of 096's shield when he enters in rage (Base-Game default: 40) Ps: I recommend the default config that i put because increasing it would be too op.")]
+
+        public float RechargeRateShield { get; set; } = 45;
     }
 }
