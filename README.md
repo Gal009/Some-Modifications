@@ -10,7 +10,7 @@
 
 Everything I mentioned above is configurable (minus the panic effect, the effect of the SCP-207 that the SCP-173 gets when it puts a tantrum and the negative effects of when someone walks in its tantrum. The only thing you can configure from these Effects is time and the intensity of the SCP-207 effect but if you want I can try to make you change the effects too)
 
-Ps: Going to remove the // Comments on the next update
+Ps: Going to remove the // Comments on the next update (Or not)
 
 I know that the code is garbage (But i TRIED to do something good)
 you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
