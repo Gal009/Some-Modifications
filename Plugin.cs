@@ -11,24 +11,9 @@ namespace ChorãoUtilities
 
         public Handlers.Player2 player;
 
-        //I know maybe it's not nescessary but i created a function for the events.
-
         public override void OnEnabled()
         {
-            RegisterEvents();
 
-            base.OnEnabled();
-        }
-
-        public override void OnDisabled()
-        {
-            UnRegisterEvents();
-
-            base.OnDisabled();
-        }
-
-        public void RegisterEvents()
-        {
             player = new Handlers.Player2(this);
 
             ExEvents.Scp096.AddingTarget += player.OnEnraging096;
@@ -40,9 +25,11 @@ namespace ChorãoUtilities
             ExEvents.Scp173.PlacingTantrum += player.OnPlacingTantrum;
             Player.Hurting += player.OnGettingHurt;
             Player.Hurting += player.OnHurtingAPlayer;
+
+            base.OnEnabled();
         }
 
-        public void UnRegisterEvents()
+        public override void OnDisabled()
         {
             ExEvents.Scp096.AddingTarget -= player.OnEnraging096;
             Player.WalkingOnTantrum -= player.OnWalkingOnTantrum;
@@ -55,6 +42,8 @@ namespace ChorãoUtilities
             Player.Hurting -= player.OnHurtingAPlayer;
 
             player = null;
+
+            base.OnDisabled();
         }
     }
 }

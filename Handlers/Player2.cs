@@ -2,17 +2,18 @@
 using Exiled.API.Features;
 using CustomPlayerEffects;
 using Exiled.API.Enums;
+using System;
+using System.Collections.Generic;
+using NorthwoodLib.Pools;
 
 namespace ChorãoUtilities.Handlers
 {
     public class Player2
     {
-        // I made this so i don't have to use a singleton
 
         private readonly Plugin plugin;
-        public Player2( Plugin plugin ) => this.plugin = plugin;
+        public Player2(Plugin plugin) => this.plugin = plugin;
 
-        // The shield recharge rate thingy may be wrong, but in the dootpeek it says that the base-game thingy is 40.
         public void OnEnraging(EnragingEventArgs ev)
         {
             ev.Player.Broadcast(6, plugin.Config.AngryMessage);
@@ -23,25 +24,18 @@ namespace ChorãoUtilities.Handlers
         public void OnCalmingDown(CalmingDownEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.CalmingDownMessage, 5);
-            ev.Scp096.CurMaxShield = plugin.Config.Max096AHPCalmingDown;
         }
-
-        // I don't know if this code works because i haven't tested it yet, if it doesn't works dm me on discord that im going to try to fix it
 
         public void OnAddingTarget(AddingTargetEventArgs ev)
         {
             ev.EnrageTimeToAdd = plugin.Config.TimeThat096GainsOfRageWhenSomeoneLooks;
         }
 
-        //I made this a broadcast so people can use ScpUtils and my plugin
-
         public void OnEnraging096(AddingTargetEventArgs ev)
         {
             ev.Target.Broadcast(5, plugin.Config.LookedTo096);
             ev.Target.EnableEffect(EffectType.BodyshotReduction, plugin.Config.PanicTime);
         }
-
-        //I put the check: If (ev.Player.IsHuman) because i only want to this event trigger to humans.
 
         public void OnWalkingOnTantrum(WalkingOnTantrumEventArgs ev)
         {
@@ -53,14 +47,11 @@ namespace ChorãoUtilities.Handlers
             }
         }
 
-        //Here i didn't put a Hint/Bc because i think it's not nescessary, but i think im going to add one soon so people don't get confused on why they are not regenerating the hume shield when they place the tantrum.
-
         public void OnPlacingTantrum(PlacingTantrumEventArgs ev)
         {
+            ev.Player.ShowHint(plugin.Config.PlacingTantrumMessage, 5);
             ev.Player.EnableEffect(EffectType.Scp207, plugin.Config.PeanutPlacingTantrumCokeTime);
         }
-
-        //Here i removed the if (ev.Player.IsHuman) check because it was a unescessary check
 
         public void OnEnteringFemurBreaker(EnteringFemurBreakerEventArgs ev)
         {
@@ -75,33 +66,24 @@ namespace ChorãoUtilities.Handlers
             }
         }
 
-        //I know maybe this code is not efficient, but i tried.
-
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
-
-            //I don't know if the null checker works, i don't have someone to test if it works. I just can say that if the attacker is null a error doesn't appear on the console.
-
             if (ev.Attacker == null || ev.Target == null || ev.Attacker == ev.Target)
                 return;
-                    if (ev.Attacker.Role == RoleType.Scp93953)
+            if (ev.Attacker.Role == RoleType.Scp93953)
             {
-                        ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
-                        ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
+                ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
+                ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
+                {
+                    if (ev.Attacker.Role == RoleType.Scp93989)
+                    {
+                        ev.Target.ShowHint(plugin.Config.PoisonedDogMessage, 5);
+                        ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
+                    }
+                }
             }
-            else
-            {
-                        if (ev.Attacker.Role == RoleType.Scp93989)
-                        {
-                            ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
-                            ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
-                        }
-           }
         }
-
-        //Hey! You reached the end, if you have suggestions of things to add in my plugin dm me on discord!
     }
 }
-    
 
 

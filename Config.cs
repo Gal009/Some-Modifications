@@ -6,8 +6,6 @@ namespace ChorãoUtilities
     public sealed class Config : IConfig
     {
 
-        // I think i don't have to explain things here.
-
         [Description("If the plugin is enabled")]
         public bool IsEnabled { get; set; } = true;
 
@@ -37,9 +35,6 @@ namespace ChorãoUtilities
         [Description("Max AHP of 096 in rage")]
         public int Max096AHPInRage { get; set; } = 2000;
 
-        [Description("Max AHP of 096 when he is calming down")]
-        public int Max096AHPCalmingDown { get; set; } = 1500;
-
         [Description("How much time he gains of rage when someone looks at him")]
         public float TimeThat096GainsOfRageWhenSomeoneLooks { get; set; } = 2;
 
@@ -63,5 +58,8 @@ namespace ChorãoUtilities
 
         [Description("The recharge rate of 096's shield when he enters in rage (Base-Game default: 40) Ps: I recommend the default config that i put because increasing it would be too op.")]
         public float RechargeRateShield { get; set; } = 45;
+
+        [Description("The message that appears when SCP-173 places the tantrum")]
+        public string PlacingTantrumMessage { get; set; } = "You feel faster...";
     }
 }
