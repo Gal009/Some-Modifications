@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Player = Exiled.Events.Handlers.Player;
 using ExEvents = Exiled.Events.Handlers;
+using Exiled.Loader;
 
 namespace ChorãoUtilities
 {
@@ -9,12 +10,14 @@ namespace ChorãoUtilities
     {
         public override Version RequiredExiledVersion { get; } = new Version(4, 1, 4);
 
+        private Handlers.Server2 server;
         public Handlers.Player2 player;
 
-        public override void OnEnabled()
+		public override void OnEnabled()
         {
 
             player = new Handlers.Player2(this);
+            server = new Handlers.Server2(this);
 
             ExEvents.Scp096.AddingTarget += player.OnEnraging096;
             Player.WalkingOnTantrum += player.OnWalkingOnTantrum;
@@ -25,6 +28,8 @@ namespace ChorãoUtilities
             ExEvents.Scp173.PlacingTantrum += player.OnPlacingTantrum;
             Player.Hurting += player.OnGettingHurt;
             Player.Hurting += player.OnHurtingAPlayer;
+            ExEvents.Server.RoundStarted += server.OnRoundStarted;
+            ExEvents.Server.RespawningTeam += server.OnRespawningTeam;
 
             base.OnEnabled();
         }
@@ -40,8 +45,11 @@ namespace ChorãoUtilities
             ExEvents.Scp173.PlacingTantrum -= player.OnPlacingTantrum;
             Player.Hurting -= player.OnGettingHurt;
             Player.Hurting -= player.OnHurtingAPlayer;
+            ExEvents.Server.RoundStarted -= server.OnRoundStarted;
+            ExEvents.Server.RespawningTeam -= server.OnRespawningTeam;
 
             player = null;
+            server = null;
 
             base.OnDisabled();
         }
