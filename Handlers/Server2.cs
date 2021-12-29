@@ -24,9 +24,9 @@ namespace ChorãoUtilities.Handlers
             {
                 Cassie.Message("pitch_1.3 xmas_bouncyballs", true, false);
             }
-            else
             {
-                if (ev.NextKnownTeam is Respawning.SpawnableTeamType.NineTailedFox)
+
+            if (ev.NextKnownTeam is Respawning.SpawnableTeamType.NineTailedFox)
                 {
                     Cassie.Message("pitch_0.8 xmas_JingleBells", true, false);
                 }

@@ -61,5 +61,7 @@ namespace ChorãoUtilities
 
         [Description("The message that appears when SCP-173 places the tantrum")]
         public string PlacingTantrumMessage { get; set; } = "You feel faster...";
+        [Description("The intensity of the 173 speed boost when he places the tantrum")]
+        public byte Intensity173Speedboost { get; set; } = 20;
     }
 }

@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Player = Exiled.Events.Handlers.Player;
 using ExEvents = Exiled.Events.Handlers;
+using ExEvents2 = Exiled.Events.EventArgs;
 using Exiled.Loader;
 
 namespace ChorãoUtilities
@@ -28,6 +29,7 @@ namespace ChorãoUtilities
             ExEvents.Scp173.PlacingTantrum += player.OnPlacingTantrum;
             Player.Hurting += player.OnGettingHurt;
             Player.Hurting += player.OnHurtingAPlayer;
+            Player.ItemUsed += player.OnUsedItem;
             ExEvents.Server.RoundStarted += server.OnRoundStarted;
             ExEvents.Server.RespawningTeam += server.OnRespawningTeam;
 
@@ -45,8 +47,10 @@ namespace ChorãoUtilities
             ExEvents.Scp173.PlacingTantrum -= player.OnPlacingTantrum;
             Player.Hurting -= player.OnGettingHurt;
             Player.Hurting -= player.OnHurtingAPlayer;
+            Player.ItemUsed -= player.OnUsedItem;
             ExEvents.Server.RoundStarted -= server.OnRoundStarted;
             ExEvents.Server.RespawningTeam -= server.OnRespawningTeam;
+            ExEvents.Scp330.
 
             player = null;
             server = null;

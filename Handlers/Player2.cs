@@ -50,7 +50,8 @@ namespace ChorãoUtilities.Handlers
         public void OnPlacingTantrum(PlacingTantrumEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.PlacingTantrumMessage, 5);
-            ev.Player.EnableEffect(EffectType.Scp207, plugin.Config.PeanutPlacingTantrumCokeTime);
+            ev.Player.EnableEffect(EffectType.MovementBoost, plugin.Config.PeanutPlacingTantrumCokeTime);
+            ev.Player.ChangeEffectIntensity<MovementBoost>(plugin.Config.Intensity173Speedboost);
         }
 
         public void OnEnteringFemurBreaker(EnteringFemurBreakerEventArgs ev)
@@ -83,6 +84,20 @@ namespace ChorãoUtilities.Handlers
                 }
             }
         }
+        public void OnUsedItem(UsedItemEventArgs ev)
+        {
+            if (ev.Player.CurrentItem.Type == ItemType.Medkit)
+            {
+                ev.Player.DisableEffect<Bleeding>();
+                ev.Player.DisableEffect<Poisoned>();
+            }
+        }
+
+        public void OnPickingUpScp330(PickingUpScp330EventArgs ev)
+
+            {
+                ev.Usage = -9;
+            }
     }
 }
 
