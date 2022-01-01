@@ -5,10 +5,13 @@
 - Makes a message appear for the SCP-096 when he's calming down
 - A message also appears for those who looked at the SCP-096 and gives them the effect of panic
 - A message appears that the person is being corroded when stepping on the SCP-173 tantrum
-- Gives the coke effect to the SCP-173 when it places the tantrum
 - When 939 bites it gives the bleeding effect or the poisoned effect depending on the type of 939
+- Gives a configurable speed boost to SCP-173 when he places the tantrum
+- Lets you edit the shield recharge rate of 096's shield when he is enraged
+- Lets you edit how much times you can pickup the SCP-330 candy (Configurable)
+- Plays Xmas songs when Chaos or NTF spawns
 
-Everything I mentioned above is configurable (minus the panic effect, the effect of the SCP-207 that the SCP-173 gets when it puts a tantrum and the negative effects of when someone walks in its tantrum. The only thing you can configure from these Effects is time and the intensity of the SCP-207 effect but if you want I can try to make you change the effects too)
+Almos everything I mentioned above is configurable
 
 Configs Print: https://imgur.com/a/bGUInOn
 
@@ -22,4 +25,4 @@ Effects when you walk on the tantrum:
 I know that the code is garbage (But i TRIED to do something good)
 you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
 
-(Shout out to Sexiled Contributer for helping me and Jeppe Beier for the exiled plugin tutorial)
+(Shout out to Sexiled Contributer and Joker for helping me out)
