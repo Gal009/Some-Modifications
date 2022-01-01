@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 
 namespace ChorãoUtilities.Handlers
@@ -23,9 +18,8 @@ namespace ChorãoUtilities.Handlers
             if (ev.NextKnownTeam is Respawning.SpawnableTeamType.ChaosInsurgency)
             {
                 Cassie.Message("pitch_1.3 xmas_bouncyballs", true, false);
-            }
-            {
-
+             {
+             }
             if (ev.NextKnownTeam is Respawning.SpawnableTeamType.NineTailedFox)
                 {
                     Cassie.Message("pitch_0.8 xmas_JingleBells", true, false);

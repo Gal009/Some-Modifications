@@ -20,23 +20,19 @@ namespace ChorãoUtilities.Handlers
             ev.Scp096.CurMaxShield = plugin.Config.Max096AHPInRage;
             ev.Scp096.ShieldRechargeRate = plugin.Config.RechargeRateShield;
         }
-
         public void OnCalmingDown(CalmingDownEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.CalmingDownMessage, 5);
         }
-
         public void OnAddingTarget(AddingTargetEventArgs ev)
         {
             ev.EnrageTimeToAdd = plugin.Config.TimeThat096GainsOfRageWhenSomeoneLooks;
         }
-
         public void OnEnraging096(AddingTargetEventArgs ev)
         {
             ev.Target.Broadcast(5, plugin.Config.LookedTo096);
             ev.Target.EnableEffect(EffectType.BodyshotReduction, plugin.Config.PanicTime);
         }
-
         public void OnWalkingOnTantrum(WalkingOnTantrumEventArgs ev)
         {
             if (ev.Player.IsHuman)
@@ -46,19 +42,16 @@ namespace ChorãoUtilities.Handlers
                 ev.Player.EnableEffect(EffectType.Bleeding, plugin.Config.PeanutBleedingWalkingOnTantrumTime);
             }
         }
-
         public void OnPlacingTantrum(PlacingTantrumEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.PlacingTantrumMessage, 5);
             ev.Player.EnableEffect(EffectType.MovementBoost, plugin.Config.PeanutPlacingTantrumCokeTime);
             ev.Player.ChangeEffectIntensity<MovementBoost>(plugin.Config.Intensity173Speedboost);
         }
-
         public void OnEnteringFemurBreaker(EnteringFemurBreakerEventArgs ev)
         {
             ev.Player.ShowHint(plugin.Config.EnteringOnFemurBreaker, 5);
         }
-
         public void OnGettingHurt(HurtingEventArgs ev)
         {
             if (ev.Handler.Type == DamageType.Decontamination)
@@ -66,21 +59,22 @@ namespace ChorãoUtilities.Handlers
                 ev.Target.ShowHint(plugin.Config.NoobDiedtoDecontamination, 5);
             }
         }
-
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
             if (ev.Attacker == null || ev.Target == null || ev.Attacker == ev.Target)
                 return;
+
             if (ev.Attacker.Role == RoleType.Scp93953)
             {
                 ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
                 ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
+            }
+            else
+            {
+                if (ev.Attacker.Role == RoleType.Scp93989)
                 {
-                    if (ev.Attacker.Role == RoleType.Scp93989)
-                    {
-                        ev.Target.ShowHint(plugin.Config.PoisonedDogMessage, 5);
-                        ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
-                    }
+                    ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
+                    ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
                 }
             }
         }
@@ -92,13 +86,21 @@ namespace ChorãoUtilities.Handlers
                 ev.Player.DisableEffect<Poisoned>();
             }
         }
-
-        public void OnPickingUpScp330(PickingUpScp330EventArgs ev)
-
+        public void OnInteractingWithScp330(InteractingScp330EventArgs ev)
+        {
+            if (ev.UsageCount > plugin.Config.NumberCandyYouCanGetWow)
             {
-                ev.Usage = -9;
+                ev.ShouldSever = true;
             }
+            else
+            {
+                ev.ShouldSever = false;
+            }
+        }
+
+        public void OnStartPryingGate(StartPryingGateEventArgs ev)
+        {
+            ev.Player.ShowHint("Se inscreva no canal simpson gaymer.", 5);
+        }
     }
 }
-
-
