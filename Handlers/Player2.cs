@@ -97,10 +97,5 @@ namespace ChorãoUtilities.Handlers
                 ev.ShouldSever = false;
             }
         }
-
-        public void OnStartPryingGate(StartPryingGateEventArgs ev)
-        {
-            ev.Player.ShowHint("Se inscreva no canal simpson gaymer.", 5);
-        }
     }
 }

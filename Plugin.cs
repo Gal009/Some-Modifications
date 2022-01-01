@@ -22,7 +22,6 @@ namespace ChorãoUtilities
             ExEvents.Scp096.AddingTarget += player.OnAddingTarget;
             ExEvents.Scp096.CalmingDown += player.OnCalmingDown;
             ExEvents.Scp096.AddingTarget += player.OnEnraging096;
-            ExEvents.Scp096.StartPryingGate += player.OnStartPryingGate;
             ExEvents.Scp173.PlacingTantrum += player.OnPlacingTantrum;
             Player.Hurting += player.OnGettingHurt;
             Player.Hurting += player.OnHurtingAPlayer;
@@ -42,7 +41,6 @@ namespace ChorãoUtilities
             ExEvents.Scp096.Enraging -= player.OnEnraging;
             ExEvents.Scp096.AddingTarget -= player.OnAddingTarget;
             ExEvents.Scp096.CalmingDown -= player.OnCalmingDown;
-            ExEvents.Scp096.StartPryingGate -= player.OnStartPryingGate;
             ExEvents.Scp173.PlacingTantrum -= player.OnPlacingTantrum;
             Player.Hurting -= player.OnGettingHurt;
             Player.Hurting -= player.OnHurtingAPlayer;
