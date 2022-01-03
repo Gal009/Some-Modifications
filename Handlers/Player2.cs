@@ -1,10 +1,6 @@
 ﻿using Exiled.Events.EventArgs;
-using Exiled.API.Features;
 using CustomPlayerEffects;
 using Exiled.API.Enums;
-using System;
-using System.Collections.Generic;
-using NorthwoodLib.Pools;
 
 namespace ChorãoUtilities.Handlers
 {
