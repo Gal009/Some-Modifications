@@ -66,5 +66,7 @@ namespace ChorãoUtilities
 
         [Description("The amount of candies that someone can pickup before his hands get severed, the way it works is: If you put the value in 0 it will be the default thing, so when someone picks up more than 2 candies his hands will get severed but if you put 1 it will be 3 and so on.")]
         public int NumberCandyYouCanGetWow { get; set; } = 5;
+        [Description("The message that appears when a player joins the server (It appears as a report Pop-Up)")]
+        public string JoinedServerMessage { get; set; } = "Welcome to my cool server, enjoy your stay! :D";
     }
 }

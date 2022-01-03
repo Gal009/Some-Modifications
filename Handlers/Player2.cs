@@ -69,15 +69,13 @@ namespace ChorãoUtilities.Handlers
                 ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
                 ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
             }
-            else
+            else if (ev.Attacker.Role == RoleType.Scp93989)
             {
-                if (ev.Attacker.Role == RoleType.Scp93989)
-                {
-                    ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
-                    ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
-                }
+                ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
+                ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
             }
         }
+        
         public void OnUsedItem(UsedItemEventArgs ev)
         {
             if (ev.Player.CurrentItem.Type == ItemType.Medkit)
@@ -96,6 +94,10 @@ namespace ChorãoUtilities.Handlers
             {
                 ev.ShouldSever = false;
             }
+        }
+        public void OnPlayerVerified(VerifiedEventArgs ev)
+        {
+            ev.Player.OpenReportWindow(plugin.Config.JoinedServerMessage);
         }
     }
 }

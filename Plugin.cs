@@ -27,6 +27,7 @@ namespace ChorãoUtilities
             Player.WalkingOnTantrum += player.OnWalkingOnTantrum;
             Player.EnteringFemurBreaker += player.OnEnteringFemurBreaker;
             Player.InteractingScp330 += player.OnInteractingWithScp330;
+            Player.Verified += player.OnPlayerVerified;
 
             base.OnEnabled();
         }
@@ -44,6 +45,7 @@ namespace ChorãoUtilities
             Player.WalkingOnTantrum -= player.OnWalkingOnTantrum;
             Player.EnteringFemurBreaker -= player.OnEnteringFemurBreaker;
             Player.InteractingScp330 -= player.OnInteractingWithScp330;
+            Player.Verified -= player.OnPlayerVerified;
 
             player = null;
 
