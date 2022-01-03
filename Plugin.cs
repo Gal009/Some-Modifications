@@ -7,7 +7,7 @@ namespace ChorãoUtilities
 {
     public class Plugin : Plugin<Config>
     {
-        public override Version RequiredExiledVersion { get; } = new Version(4, 1, 7);
+        public override Version RequiredExiledVersion { get; } = new Version(4, 2, 0);
 
         public Handlers.Player2 player;
 
