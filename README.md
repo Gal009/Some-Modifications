@@ -13,7 +13,7 @@
 
 Almos everything I mentioned above is configurable
 
-Configs Print: https://imgur.com/a/bGUInOn
+Configs Print: https://imgur.com/a/bGUInOn (Outdated)
 
 Message that appears when the 096 gets enraged print: https://imgur.com/a/SMfRQC4
 
