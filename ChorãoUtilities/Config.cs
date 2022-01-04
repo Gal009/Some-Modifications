@@ -72,11 +72,12 @@ namespace ChorãoUtilities
         public bool Scp096EnrageThings { get; set; } = true;
 
         [Description("If the SCP-173 Tantrum damage things are enabled")]
-
         public bool Scp173TantrumDamageThings { get; set; } = true;
 
         [Description("If the SCP-939 things are enabled")]
-
         public bool Scp939Things { get; set; } = true;
+
+        [Description("If the Report-PopUp Thing is enabled")]
+        public bool ReportPopUp { get; set; } = true;
     }
 }

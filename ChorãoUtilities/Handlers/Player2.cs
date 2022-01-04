@@ -103,7 +103,10 @@ namespace ChorãoUtilities.Handlers
         }
         public void OnPlayerVerified(VerifiedEventArgs ev)
         {
-            ev.Player.OpenReportWindow(plugin.Config.JoinedServerMessage);
+            if (plugin.Config.ReportPopUp)
+            {
+                ev.Player.OpenReportWindow(plugin.Config.JoinedServerMessage);
+            }
         }
     }
 }
