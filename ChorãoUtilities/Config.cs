@@ -70,5 +70,13 @@ namespace ChorãoUtilities
         public string JoinedServerMessage { get; set; } = "Welcome to my cool server, enjoy your stay! :D";
         [Description("If the enraging things of SCP-096 are enabled")]
         public bool Scp096EnrageThings { get; set; } = true;
+
+        [Description("If the SCP-173 Tantrum damage things are enabled")]
+
+        public bool Scp173TantrumDamageThings { get; set; } = true;
+
+        [Description("If the SCP-939 things are enabled")]
+
+        public bool Scp939Things { get; set; } = true;
     }
 }

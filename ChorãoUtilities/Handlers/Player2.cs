@@ -35,11 +35,14 @@ namespace ChorãoUtilities.Handlers
         }
         public void OnWalkingOnTantrum(WalkingOnTantrumEventArgs ev)
         {
-            if (ev.Player.IsHuman)
+            if (plugin.Config.Scp173TantrumDamageThings)
             {
-                ev.Player.ShowHint(plugin.Config.WalkingOnTantrumMessage, 5);
-                ev.Player.EnableEffect(EffectType.Poisoned, plugin.Config.PeanutPoisoningWalkingOnTantrumTime);
-                ev.Player.EnableEffect(EffectType.Bleeding, plugin.Config.PeanutBleedingWalkingOnTantrumTime);
+                if (ev.Player.IsHuman)
+                {
+                    ev.Player.ShowHint(plugin.Config.WalkingOnTantrumMessage, 5);
+                    ev.Player.EnableEffect(EffectType.Poisoned, plugin.Config.PeanutPoisoningWalkingOnTantrumTime);
+                    ev.Player.EnableEffect(EffectType.Bleeding, plugin.Config.PeanutBleedingWalkingOnTantrumTime);
+                }
             }
         }
         public void OnPlacingTantrum(PlacingTantrumEventArgs ev)
@@ -61,18 +64,21 @@ namespace ChorãoUtilities.Handlers
         }
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
-            if (ev.Attacker == null || ev.Target == null || ev.Attacker == ev.Target)
-                return;
+            if (plugin.Config.Scp939Things)
+            {
+                if (ev.Attacker == null || ev.Target == null || ev.Attacker == ev.Target)
+                    return;
 
-            if (ev.Attacker.Role == RoleType.Scp93953)
-            {
-                ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
-                ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
-            }
-            else if (ev.Attacker.Role == RoleType.Scp93989)
-            {
-                ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
-                ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
+                if (ev.Attacker.Role == RoleType.Scp93953)
+                {
+                    ev.Target.ShowHint(plugin.Config.BleedingAppearDogMessage, 5);
+                    ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingDogBiteTime);
+                }
+                else if (ev.Attacker.Role == RoleType.Scp93989)
+                {
+                    ev.Target.ShowHint(plugin.Config.PoisonedDogMessage);
+                    ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonedDogBiteTime);
+                }
             }
         }
         
