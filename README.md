@@ -1,4 +1,4 @@
-# Chorao-Utilities
+# Some-Modifications
 - Gives negative effects when someone walks in the SCP-173 tantrum
 - Lets you edit SCP-096's AHP when it's in rage and the shield recharge rate
 - Makes a message appear for SCP-096 when he goes into rage
