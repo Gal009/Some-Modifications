@@ -8,13 +8,7 @@
 - When 939 bites it gives the bleeding effect or the poisoned effect depending on the type of 939
 - Gives a configurable speed boost to SCP-173 when he places the tantrum
 - Lets you edit the shield recharge rate of 096's shield when he is enraged
-- Lets you edit how much times you can pickup the SCP-330 candy (Configurable)
-
-Almos everything I mentioned above is configurable
-
-Configs Print: https://imgur.com/a/bGUInOn (Outdated)
-
-Message that appears when the 096 gets enraged print: https://imgur.com/a/SMfRQC4
+- Lets you edit how much times you can pickup the SCP-330 candy
 
 Effects when you walk on the tantrum:
 
@@ -25,3 +19,6 @@ I know that the code is garbage (But i TRIED to do something good)
 you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
 
 (Shout out to Sexiled Contributer and Joker for helping me out)
+
+Configs:
+
