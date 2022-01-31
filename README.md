@@ -9,7 +9,6 @@
 - Gives a configurable speed boost to SCP-173 when he places the tantrum
 - Lets you edit the shield recharge rate of 096's shield when he is enraged
 - Lets you edit how much times you can pickup the SCP-330 candy (Configurable)
-- Plays Xmas songs when Chaos or NTF spawns
 
 Almos everything I mentioned above is configurable
 
