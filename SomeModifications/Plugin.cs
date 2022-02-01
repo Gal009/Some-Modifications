@@ -5,18 +5,21 @@ using ExEvents = Exiled.Events.Handlers;
 
 namespace SomeModifications
 {
-    public class Plugin : Plugin<Config>
+    public class Plugin : Plugin<Config, Translations>
     {
         public override Version RequiredExiledVersion { get; } = new Version(4, 2, 2);
+        public override string Name { get; } = "SomeModifications";
         public override Version Version { get; } = new Version(2, 6, 0);
 
+        public static Plugin Singleton;
         public Handlers.Player2 player;
 
-		public override void OnEnabled()
+        public override void OnEnabled()
         {
+            Singleton = this;
+            player = new Handlers.Player2();
 
-            player = new Handlers.Player2(this);
-
+            ExEvents.Server.RoundStarted += player.OnRoundStarted;
             ExEvents.Scp096.Enraging += player.OnEnraging;
             ExEvents.Scp096.AddingTarget += player.OnAddingTarget;
             ExEvents.Scp096.AddingTarget += player.OnEnraging096;
@@ -32,6 +35,7 @@ namespace SomeModifications
 
         public override void OnDisabled()
         {
+            ExEvents.Server.RoundStarted += player.OnRoundStarted;
             ExEvents.Scp096.AddingTarget -= player.OnEnraging096;
             ExEvents.Scp096.Enraging -= player.OnEnraging;
             ExEvents.Scp096.AddingTarget -= player.OnAddingTarget;
@@ -42,6 +46,7 @@ namespace SomeModifications
             Player.InteractingScp330 -= player.OnInteractingWithScp330;
             Player.Verified -= player.OnPlayerVerified;
 
+            Singleton = null;
             player = null;
 
             base.OnDisabled();

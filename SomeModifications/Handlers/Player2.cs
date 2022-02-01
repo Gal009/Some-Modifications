@@ -1,79 +1,89 @@
 ﻿using Exiled.Events.EventArgs;
 using CustomPlayerEffects;
 using Exiled.API.Enums;
+using Utils.Networking;
+using System;
+using System.Linq;
+using Exiled.API.Extensions;
+using Exiled.API.Features;
+using Exiled.API.Features.Items;
+using Exiled.CustomItems.API.Features;
+using MEC;
+using Respawning;
+using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 namespace SomeModifications.Handlers
 {
     public class Player2
     {
 
-        private readonly Plugin plugin;
-        public Player2(Plugin plugin) => this.plugin = plugin;
+        private readonly Config config = Plugin.Singleton.Config;
+        private readonly Translations translations = Plugin.Singleton.Translation;
 
         public void OnEnraging(EnragingEventArgs ev)
         {
-            if (plugin.Config.Scp096EnrageThings)
+            if (config.scp096EnrageThings)
             {
-                ev.Player.Broadcast(6, plugin.Config.AngryMessage);
-                ev.Scp096.CurMaxShield = plugin.Config.Max096AHPInRage;
-                ev.Scp096.ShieldRechargeRate = plugin.Config.SCP096ShieldRechargeRate;
+                ev.Player.ShowHint(translations.AngryMessage, 5);
+                ev.Scp096.CurMaxShield = config.Max096AHPInRage;
+                ev.Scp096.ShieldRechargeRate = config.scp096ShieldRechargeRate;
             }
         }
         public void OnAddingTarget(AddingTargetEventArgs ev)
         {
-            if (plugin.Config.Scp096EnrageThings)
+            if (config.scp096EnrageThings)
             {
-                ev.EnrageTimeToAdd = plugin.Config.TimeThat096GainsOfRageWhenSomeoneLooks;
+                ev.EnrageTimeToAdd = config.TimeThat096GainsOfRageWhenSomeoneLooks;
             }
         }
         public void OnEnraging096(AddingTargetEventArgs ev)
         {
-            if (plugin.Config.Scp096EnrageThings)
+            if (config.scp096EnrageThings)
             {
-                ev.Target.Broadcast(5, plugin.Config.LookedTo096);
-                ev.Target.EnableEffect(EffectType.BodyshotReduction, plugin.Config.PanicTime);
+                ev.Target.Broadcast(5, translations.LookedTo096);
+                ev.Target.EnableEffect(EffectType.BodyshotReduction, config.PanicTime);
             }
         }
         public void OnWalkingOnTantrum(WalkingOnTantrumEventArgs ev)
         {
-            if (plugin.Config.Scp173TantrumDamageThings)
-                if (ev.Player.IsHuman)
-                {
-                    ev.Player.ShowHint(plugin.Config.WalkingOnTantrumMessage, 5);
-                    ev.Player.EnableEffect(EffectType.Bleeding, plugin.Config.BleedingTimeWalkingOnTantrum);
-                    ev.Player.EnableEffect(EffectType.Poisoned, plugin.Config.PoisonTimeWalkingOnTantrum);
-                }
+            if (!config.scp173TantrumDamageThings || ev.Player.IsHuman)
+            {
+                ev.Player.ShowHint(translations.WalkingOnTantrumMessage, 5);
+                ev.Player.EnableEffect(EffectType.Bleeding, config.BleedingTimeWalkingOnTantrum);
+                ev.Player.EnableEffect(EffectType.Poisoned, config.PoisonTimeWalkingOnTantrum);
+            }
         }
         public void OnPlacingTantrum(PlacingTantrumEventArgs ev)
         {
-            if (plugin.Config.Scp173PlacingTantrumThings)
+            if (config.scp173PlacingTantrumThings)
             {
-                ev.Player.ShowHint(plugin.Config.PlacingTantrumMessage, 5);
-                ev.Player.EnableEffect(EffectType.MovementBoost, plugin.Config.Scp173MovementBoostTime);
-                ev.Player.ChangeEffectIntensity<MovementBoost>(plugin.Config.SCP173SpeedboostIntensity);
+                ev.Player.ShowHint(translations.PlacingTantrumMessage, 5);
+                ev.Player.EnableEffect(EffectType.MovementBoost, config.Scp173MovementBoostTime);
+                ev.Player.ChangeEffectIntensity<MovementBoost>(config.scp173SpeedboostIntensity);
             }
         }
 
         public void OnHurtingAPlayer(HurtingEventArgs ev)
         {
-            if (!plugin.Config.Scp939Things || ev.Attacker == null) return;
+            if (!config.scp939Things || ev.Attacker == null) return;
 
             if (ev.Attacker.Role == RoleType.Scp93953)
             {
-                ev.Target.ShowHint(plugin.Config.HitScp93953Message, 5);
-                ev.Target.EnableEffect(EffectType.Bleeding, plugin.Config.HitSCP93953BleedingTime);
+                ev.Target.ShowHint(translations.Hitscp93953Message, 5);
+                ev.Target.EnableEffect(EffectType.Bleeding, config.Hitscp93953BleedingTime);
             }
             else if (ev.Attacker.Role == RoleType.Scp93989)
             {
-                ev.Target.ShowHint(plugin.Config.HitSCP93989Message);
-                ev.Target.EnableEffect(EffectType.Poisoned, plugin.Config.HitSCP93989PoisonedTime);
+                ev.Target.ShowHint(translations.Hitscp93989Message);
+                ev.Target.EnableEffect(EffectType.Poisoned, config.Hitscp93989PoisonedTime);
             }
         }
-        
+
         public void OnUsedItem(UsedItemEventArgs ev)
         {
-            if (plugin.Config.ShouldMedkitRemoveEffects)
-            if (ev.Player.CurrentItem.Type == ItemType.Medkit)
+            if (config.ShouldMedkitRemoveEffects || ev.Player.CurrentItem.Type == ItemType.Medkit)
             {
                 ev.Player.DisableEffect<Bleeding>();
                 ev.Player.DisableEffect<Poisoned>();
@@ -81,7 +91,7 @@ namespace SomeModifications.Handlers
         }
         public void OnInteractingWithScp330(InteractingScp330EventArgs ev)
         {
-            if (ev.UsageCount > plugin.Config.NumberOfCandiesYouCanPick)
+            if (ev.UsageCount > config.NumberOfCandiesYouCanPick)
             {
                 ev.ShouldSever = true;
             }
@@ -92,9 +102,9 @@ namespace SomeModifications.Handlers
         }
         public void OnPlayerVerified(VerifiedEventArgs ev)
         {
-            if (plugin.Config.ReportPopUpIsEnabled)
+            if (config.ReportPopUpIsEnabled)
             {
-                ev.Player.OpenReportWindow(plugin.Config.JoinedTheServerMessage);
+                ev.Player.OpenReportWindow(translations.JoinedTheServerMessage);
             }
         }
     }
