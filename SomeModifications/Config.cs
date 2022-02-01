@@ -59,5 +59,11 @@ namespace SomeModifications
 
         [Description("If players should get the effects: Poisoned/Bleeding removed when they have used a medkit or a scp500")]
         public bool ShouldMedkitRemoveEffects { get; set; } = true;
+
+        [Description("The effect that SCP-93953 should give to the player when he hits the player")]
+        public string Scp93953OnBiteEffect { get; set; } = "Bleeding";
+
+        [Description("The effect that SCP-93989 should give to the player when he hits the player")]
+        public string Scp93989OnBiteEffect { get; set; } = "Poisoned";
     }
 }

@@ -1,18 +1,6 @@
 ﻿using Exiled.Events.EventArgs;
 using CustomPlayerEffects;
 using Exiled.API.Enums;
-using Utils.Networking;
-using System;
-using System.Linq;
-using Exiled.API.Extensions;
-using Exiled.API.Features;
-using Exiled.API.Features.Items;
-using Exiled.CustomItems.API.Features;
-using MEC;
-using Respawning;
-using UnityEngine;
-
-using Random = UnityEngine.Random;
 
 namespace SomeModifications.Handlers
 {
@@ -72,12 +60,12 @@ namespace SomeModifications.Handlers
             if (ev.Attacker.Role == RoleType.Scp93953)
             {
                 ev.Target.ShowHint(translations.Hitscp93953Message, 5);
-                ev.Target.EnableEffect(EffectType.Bleeding, config.Hitscp93953BleedingTime);
+                ev.Target.EnableEffect(config.Scp93953OnBiteEffect, config.Hitscp93953BleedingTime);
             }
             else if (ev.Attacker.Role == RoleType.Scp93989)
             {
                 ev.Target.ShowHint(translations.Hitscp93989Message);
-                ev.Target.EnableEffect(EffectType.Poisoned, config.Hitscp93989PoisonedTime);
+                ev.Target.EnableEffect(config.Scp93989OnBiteEffect, config.Hitscp93989PoisonedTime);
             }
         }
 
