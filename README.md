@@ -16,7 +16,7 @@ Effects when you walk on the tantrum:
 - Poisoned
 
 I know that the code is garbage (But i TRIED to do something good)
-you have any suggestions of things to add, you can DM me then on discord: Gal.#3167
+you have any suggestions of things to add, if you can DM me then on discord: Gal.#3167
 
 (Shout out to Sexiled Contributer and Joker for helping me out)
 
